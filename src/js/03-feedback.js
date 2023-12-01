@@ -4,9 +4,9 @@ const update = "feedback-form-state";
 const form = document.querySelector('.feedback-form');
 const parse = JSON.parse(localStorage.getItem(update));
 
-if (parse) {
-   form.querySelector('input').email.value = parse.email ?? '';
-    form.querySelector('textarea').message.value = parse.message ?? '';
+if (parse_elemet) {
+  form.querySelector('input').value = parse_elemet.email ?? '';
+  form.querySelector('textarea').value = parse_elemet.message ?? '';
 }
 const onform = () => {
     const formData = form.elements;
