@@ -4,7 +4,10 @@ const update = "feedback-form-state";
 const form = document.querySelector('.feedback-form');
 const parse = JSON.parse(localStorage.getItem(update));
 
-
+if (parse) {
+  form.querySelector('input').value = parse.email ?? '';
+  form.querySelector('textarea').value = parse.message ?? '';
+}
 const onform = () => {
     const formData = form.elements;
     const object = {};
@@ -15,9 +18,9 @@ const onform = () => {
 form.addEventListener('input', throttle(onform, 500));
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-     localStorage.getItem(update);
     console.log(JSON.parse(localStorage.getItem(update)));
     form.reset();
+    localStorage.getItem(update);
     localStorage.removeItem(update);
 }
 );
